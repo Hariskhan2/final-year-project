@@ -1,8 +1,36 @@
 .navBar {
-  height: 6rem;
+  height: 4.3rem;
   width: 100vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0px 1.2rem;
+  border-bottom: 1px solid;
+  border-color: rgba(230, 235, 225, 0.6);
+}
+
+.navBar__leftSide {
+  color: green;
+}
+
+.navBar__rightSide {
+  margin-right: 3rem;
+}
+
+.navBar__rightSide a {
+  text-decoration: none;
+  height: 2.5rem;
+  width: 4rem;
+
+  border-radius: 5px;
+  font-size: 1.3rem;
+  color: white;
+  padding: 0.5rem;
+  margin: 1.2rem;
+  transition: 0.5s background-color;
+  background-color: green;
+}
+
+.navBar__rightSide a:hover {
+  background-color: lightgreen;
 }

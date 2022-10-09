@@ -9,8 +9,12 @@ function Navigation() {
         <h1>Logo</h1>
       </div>
       <div className="navBar__rightSide">
-        <Link to="/login">Login</Link>
-        <Link to="/signup">Sign Up</Link>
+        <Link to="/login" className="login">
+          Login
+        </Link>
+        <Link to="/signup" className="signup">
+          Sign Up
+        </Link>
       </div>
     </div>
   );

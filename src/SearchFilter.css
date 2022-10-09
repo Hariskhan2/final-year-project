@@ -55,3 +55,25 @@
   padding: 0.3rem 0.7rem;
   border-radius: 12px;
 }
+
+.searchContainer__filter {
+  display: flex;
+}
+
+.searchContainer__filter button {
+  border: none;
+  outline: 0;
+  height: 2rem;
+  width: 8rem;
+  border: 1px solid;
+  border-color: rgba(225, 225, 230, 0.9);
+  margin: 0.4rem auto;
+  transition: 0.5s all;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  background-color: white;
+}
+
+.searchContainer__filter button:hover {
+  border-color: #191919;
+}

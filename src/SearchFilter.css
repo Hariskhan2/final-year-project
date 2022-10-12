@@ -22,19 +22,18 @@
 .searchContainer__input input::placeholder {
   font-weight: bold;
   color: darkgray;
-  padding-left: 3rem;
 }
 
 .searchContainer__menu {
   position: relative;
-  right: 6rem;
+  right: 0.9rem;
 }
 
 .searchContainer__menu a {
   text-decoration: none;
   font-size: 1rem;
   color: #191919;
-  margin: 1.5rem;
+  margin: 1.2rem;
   transition: 0.5s all ease-in;
 }
 
@@ -44,16 +43,17 @@
 }
 
 .searchContainer__menu .focused {
-  background-color: #191919;
+  background-color: #1ba94c;
   color: white;
   padding: 0.3rem 0.7rem;
   border-radius: 12px;
 }
 
 .searchContainer__menu a:hover {
-  background-color: lightgray;
+  background-color: #1ba94c;
   padding: 0.3rem 0.7rem;
   border-radius: 12px;
+  color: white;
 }
 
 .searchContainer__filter {
@@ -70,13 +70,14 @@
   border: 1px solid;
   border-color: rgba(225, 225, 230, 0.9);
   margin: 0.4rem auto;
-  transition: 0.5s all;
-  padding: 0.5rem 1rem;
+  transition: 0.5s all ease-in;
+  padding: 0.4rem 0.8rem;
   cursor: pointer;
   margin-bottom: 1.5rem;
   background-color: white;
 }
 
 .searchContainer__filter button:hover {
-  border-color: #191919;
+  border-color: #1ba94c;
+  color: #1ba94c;
 }

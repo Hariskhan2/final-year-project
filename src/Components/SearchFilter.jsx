@@ -20,6 +20,9 @@ function SearchFilter() {
           <Link to="orders">Orders</Link>
           <Link to="/help">Help</Link>
           <Link to="/FAQ's">FAQ's</Link>
+          <Link to="/sellnow" className="searchContainer__Sell">
+            Sell Now
+          </Link>
         </div>
       </div>
       <div className="searchContainer__filter">
@@ -29,7 +32,7 @@ function SearchFilter() {
         <button type="button">Accidental Cars</button>
         <button type="button">Scrap Material</button>
         <button type="button">Art products</button>
-        <button type="button">Get Recommendation</button>
+        <button type="button">Recommendation</button>
       </div>
     </React.Fragment>
   );

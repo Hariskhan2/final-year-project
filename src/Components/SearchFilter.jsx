@@ -29,6 +29,7 @@ function SearchFilter() {
         <button type="button">Accidental Cars</button>
         <button type="button">Scrap Material</button>
         <button type="button">Art products</button>
+        <button type="button">Get Recommendation</button>
       </div>
     </React.Fragment>
   );

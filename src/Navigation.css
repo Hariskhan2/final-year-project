@@ -33,18 +33,18 @@
 
 .navBar__rightSide .login {
   border: 1px solid;
-  border-color: lightgray;
-  color: darkgray;
+  border-color: #1ba94c;
+  color: #1ba94c;
   font-weight: bolder;
 }
 
 .navBar__rightSide .signup {
-  background-color: rgba(135, 248, 144, 0.8);
+  background-color: #1ba94c;
   color: white;
 }
 
 .navBar__rightSide .login:hover {
-  background-color: rgba(225, 225, 230, 0.9);
+  background-color: rgba(235, 245, 230, 0.6);
 }
 
 .navBar__rightSide .signup:hover {

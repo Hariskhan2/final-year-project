@@ -10,20 +10,21 @@
 .card__Container {
   height: 28rem;
   width: 23vw;
-  border: 1px solid rgba(230, 200, 40, 0.4);
+  border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 0.8rem;
   margin: 1.5rem;
+  transition: 0.7s all ease-in;
 }
 
 .card__header {
   padding-top: 1.5rem;
-  height: 10rem;
+  height: 12rem;
   border-bottom: 0.8px solid lightgray;
 }
 
 .card__header img {
   height: 9rem;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .card__body {
@@ -37,8 +38,8 @@
 
 .card__description {
   opacity: 0.6;
-  letter-spacing: 1.5px;
-  line-height: 1.2rem;
+  letter-spacing: 0.8px;
+  line-height: 1.1rem;
 }
 
 .card__footer {
@@ -53,7 +54,7 @@
 }
 
 .card__button {
-  margin-top: 0;
+  margin-top: -2rem;
 }
 
 .card__button button {
@@ -65,4 +66,14 @@
   outline: none;
   border: 0;
   font-size: 1.3rem;
+  transition: 0.8s all ease-in;
+}
+
+.card__Container:hover {
+  border: 1px solid #1ba94c;
+  scale: 1.1;
+}
+
+.card__button button:hover {
+  background-color: green;
 }

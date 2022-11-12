@@ -4,6 +4,7 @@ import Navigation from "./Components/Navigation";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SearchFilter from "./Components/SearchFilter";
 import Product from "./Components/Product";
+import Footer from "./Components/Footer";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         </Routes>
       </BrowserRouter>
       <Product />
+      <Footer />
     </div>
   );
 }

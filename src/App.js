@@ -3,6 +3,7 @@ import "./App.css";
 import Navigation from "./Components/Navigation";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SearchFilter from "./Components/SearchFilter";
+import Product from "./Components/Product";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           ></Route>
         </Routes>
       </BrowserRouter>
+      <Product />
     </div>
   );
 }

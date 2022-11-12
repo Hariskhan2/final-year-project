@@ -1,7 +1,7 @@
 import React from "react";
 import "../../src/CheckoutProduct.css";
 import { useStateValue } from "./../redux/StateProvider";
-function CheckoutProduct({ id, title, image, price, rating }) {
+function CheckoutProduct({ id, category, image, price, rating }) {
   const [{ basket }, dispatch] = useStateValue();
   const removeFromBasket = () => {
     dispatch({

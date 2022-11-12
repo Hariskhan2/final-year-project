@@ -22,7 +22,6 @@ function App() {
         </Routes>
       </BrowserRouter>
       <Product />
-      <Footer />
     </div>
   );
 }

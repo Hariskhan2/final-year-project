@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import "./Product.css";
+import { useStateValue } from "../redux/StateProvider";
 
 function Product() {
+  const [{ basket }, dispatch] = useStateValue();
+
   const [data, setData] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
@@ -11,6 +14,20 @@ function Product() {
     };
     fetchData();
   });
+
+  const addToBasket = () => {
+    // dispatch the item into the data layer
+    dispatch({
+      type: "ADD_TO_BASKET",
+      item: {
+        id: data.id,
+        category: data.category,
+        image: data.image,
+        price: data.price,
+        rating: data.rating,
+      },
+    });
+  };
   return (
     <div className="card">
       {data.map((product) => {
@@ -45,7 +62,9 @@ function Product() {
               </p>
             </div>
             <div className="card__button">
-              <button type="button">Add to cart</button>
+              <button type="button" onClick={addToBasket}>
+                Add to cart
+              </button>
             </div>
           </div>
         );

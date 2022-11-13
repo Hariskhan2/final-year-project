@@ -15,7 +15,7 @@ function App() {
             index
             element={
               <>
-                <Navigation /> <SearchFilter /> <Product />
+                <Product />
               </>
             }
           ></Route>

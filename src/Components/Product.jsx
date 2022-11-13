@@ -11,12 +11,14 @@ function Product() {
     const fetchData = async () => {
       const response = await Axios.get("https://fakestoreapi.com/products");
       setData(response.data);
+      console.log("data", data);
     };
     fetchData();
   });
 
   const addToBasket = () => {
     // dispatch the item into the data layer
+
     dispatch({
       type: "ADD_TO_BASKET",
       item: {

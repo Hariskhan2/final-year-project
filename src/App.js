@@ -5,11 +5,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SearchFilter from "./Components/SearchFilter";
 import Product from "./Components/Product";
 import Checkout from "./Components/Checkout";
+import EditProfile from "./Components/EditForm";
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      {/* <BrowserRouter>
         <Routes>
           <Route
             index
@@ -19,7 +20,7 @@ function App() {
               </>
             }
           ></Route>
-          {/* <Route
+          <Route
             path="/checkout"
             element={
               <>
@@ -27,9 +28,11 @@ function App() {
                 <Checkout />
               </>
             }
-          ></Route> */}
+          ></Route>
         </Routes>
-      </BrowserRouter>
+      </BrowserRouter> */}
+
+      <EditProfile />
     </div>
   );
 }

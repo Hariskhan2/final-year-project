@@ -4,6 +4,7 @@ import Navigation from "./Components/Navigation";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SearchFilter from "./Components/SearchFilter";
 import Product from "./Components/Product";
+import Checkout from "./Components/Checkout";
 
 function App() {
   return (
@@ -14,13 +15,21 @@ function App() {
             index
             element={
               <>
-                <Navigation /> <SearchFilter />
+                <Navigation /> <SearchFilter /> <Product />
               </>
             }
           ></Route>
+          {/* <Route
+            path="/checkout"
+            element={
+              <>
+                <Navigation />
+                <Checkout />
+              </>
+            }
+          ></Route> */}
         </Routes>
       </BrowserRouter>
-      <Product />
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import React from "react";
-import "../../src/CheckoutProduct.css";
 import { useStateValue } from "./../redux/StateProvider";
+import "./CheckoutProduct.css";
+
 function CheckoutProduct({ id, category, image, price, rating }) {
   const [{ basket }, dispatch] = useStateValue();
   const removeFromBasket = () => {
@@ -11,9 +12,9 @@ function CheckoutProduct({ id, category, image, price, rating }) {
   };
   return (
     <div className="checkoutProduct">
-      <img src={image} alt={title} className="checkoutProduct__image"></img>
+      <img src={image} alt={category} className="checkoutProduct__image"></img>
       <div className="checkoutProduct__info">
-        <p className="checkoutProduct__title">{title}</p>
+        <p className="checkoutProduct__title">{category}</p>
         <p className="checkoutProduct__price">
           <strong>${price}</strong>
         </p>

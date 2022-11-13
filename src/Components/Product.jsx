@@ -28,6 +28,7 @@ function Product() {
       },
     });
   };
+
   return (
     <div className="card">
       {data.map((product) => {

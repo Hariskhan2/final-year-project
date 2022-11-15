@@ -47,7 +47,7 @@ function EditProfile() {
       validationSchema={validationSchema}
       onSubmit={onSubmit}
     >
-      {({ values, setFieldValue }) => (
+      {({ setFieldValue }) => (
         <Form>
           <div className="form">
             <div className="form__control">

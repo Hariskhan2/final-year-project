@@ -10,12 +10,14 @@ import EditProfile from "./Components/EditForm";
 function App() {
   return (
     <div className="App">
-      {/* <BrowserRouter>
+      <BrowserRouter>
         <Routes>
           <Route
             index
             element={
               <>
+                <Navigation />
+                <SearchFilter />
                 <Product />
               </>
             }
@@ -30,9 +32,7 @@ function App() {
             }
           ></Route>
         </Routes>
-      </BrowserRouter> */}
-
-      <EditProfile />
+      </BrowserRouter>
     </div>
   );
 }

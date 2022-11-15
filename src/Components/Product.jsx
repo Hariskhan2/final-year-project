@@ -11,31 +11,22 @@ function Product() {
     const fetchData = async () => {
       const response = await Axios.get("https://fakestoreapi.com/products");
       setData(response.data);
-      console.log("data", data);
+      // console.log("data", data);
     };
     fetchData();
-  });
-
-  const addToBasket = () => {
-    // dispatch the item into the data layer
-
-    dispatch({
-      type: "ADD_TO_BASKET",
-      item: {
-        id: data.id,
-        category: data.category,
-        image: data.image,
-        price: data.price,
-        rating: data.rating,
-      },
-    });
-  };
+  }, []);
 
   return (
     <div className="card">
-      {data.map((product) => {
-        const { id, image, title, price, rating, category, description } =
-          product;
+      {data.slice(0, 9).map((product) => {
+        {
+          /* console.log("rating", product?.rating); */
+        }
+        const { id, image, title, price, category, description } = product;
+
+        const rating = Math.floor(product?.rating?.rate);
+        console.log("rating", rating);
+
         return (
           <div className="card__Container">
             <div className="card__header" key={id}>
@@ -65,7 +56,21 @@ function Product() {
               </p>
             </div>
             <div className="card__button">
-              <button type="button" onClick={addToBasket}>
+              <button
+                type="button"
+                onClick={() => {
+                  dispatch({
+                    type: "ADD_TO_BASKET",
+                    item: {
+                      id: id,
+                      category: category,
+                      image: image,
+                      price: price,
+                      rating: rating,
+                    },
+                  });
+                }}
+              >
                 Add to cart
               </button>
             </div>

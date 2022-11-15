@@ -1,7 +1,7 @@
 .checkoutProduct {
   display: flex;
-  margin-bottom: 12px;
-  margin-top: 10px;
+  margin-bottom: 3.3rem;
+  margin-top: 22px;
   margin-right: 2rem;
 }
 
@@ -29,6 +29,7 @@
 
 .checkoutProduct__rating {
   display: flex;
+  justify-content: center;
 }
 
 .checkoutProduct__button {

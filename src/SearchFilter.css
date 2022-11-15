@@ -17,6 +17,9 @@
   width: 40rem;
   height: 3rem;
   border-right: 3px solid rgba(225, 225, 230, 0.9);
+  font-size: 1.2rem;
+  color: #1ba94c;
+  font-weight: 600;
 }
 
 .searchContainer__input input::placeholder {

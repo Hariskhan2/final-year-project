@@ -49,6 +49,7 @@
 }
 
 .card__rating {
+  display: flex;
   position: relative;
   top: -0.74rem;
 }
@@ -67,11 +68,12 @@
   border: 0;
   font-size: 1.3rem;
   transition: 0.8s all ease-in;
+  cursor: pointer;
 }
 
 .card__Container:hover {
   border: 1px solid #1ba94c;
-  scale: 1.1;
+  box-shadow: 0 0 0 10px rgba(240, 245, 230, 0.7);
 }
 
 .card__button button:hover {

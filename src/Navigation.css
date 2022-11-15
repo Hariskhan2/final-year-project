@@ -11,9 +11,12 @@
 
 .navBar__leftSide {
   color: green;
+  background-color: linear-gradient(106.37deg, #267015, #66bc90, #267015);
 }
 
 .navBar__rightSide {
+  display: flex;
+  align-items: center;
   margin-right: 3rem;
 }
 
@@ -24,7 +27,7 @@
 
 .navBar__rightSide .login,
 .navBar__rightSide .signup {
-  height: 2.5rem;
+  height: 1.5rem;
   width: 4rem;
   padding: 0.5rem 1.2rem;
   border-radius: 10px;
@@ -49,4 +52,13 @@
 
 .navBar__rightSide .signup:hover {
   background-color: green;
+}
+
+.navBar__optionBasket {
+  display: flex;
+}
+
+.navBar__basket {
+  margin-right: 1rem;
+  color: #1ba94c;
 }

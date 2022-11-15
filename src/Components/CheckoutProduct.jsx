@@ -3,6 +3,7 @@ import { useStateValue } from "./../redux/StateProvider";
 import "./CheckoutProduct.css";
 
 function CheckoutProduct({ id, category, image, price, rating }) {
+  console.log("price", price);
   const [{ basket }, dispatch] = useStateValue();
   const removeFromBasket = () => {
     dispatch({

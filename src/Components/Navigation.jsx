@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../../src/Navigation.css";
+import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 import { useStateValue } from "../redux/StateProvider";
 
 function Navigation() {
@@ -19,12 +20,9 @@ function Navigation() {
         </Link>
 
         <Link to="/checkout">
-          <div className="header__optionBasket">
-            {/* <ShoppingBasketIcon /> */}
-            <p>Basket</p>
-            <span className="header__optionLineTwo header__basketCount">
-              {basket?.length}
-            </span>
+          <div className="navBar__optionBasket">
+            <ShoppingBasketIcon className="navBar__basket" />
+            <span className="navBar__basketCount">{basket?.length}</span>
           </div>
         </Link>
       </div>

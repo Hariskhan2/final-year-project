@@ -2,6 +2,8 @@ import React from "react";
 import { useStateValue } from "./../redux/StateProvider";
 import CheckoutProduct from "./CheckoutProduct";
 import "./Checkout.css";
+import SubTotal from "./SubTotal";
+import "./SubTotal.css";
 
 function Checkout() {
   const [{ basket }, dispatch] = useStateValue();
@@ -22,7 +24,9 @@ function Checkout() {
         </div>
       </div>
 
-      <div className="checkout__right"></div>
+      <div className="checkout__right">
+        <SubTotal />
+      </div>
     </div>
   );
 }

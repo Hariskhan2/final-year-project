@@ -8,6 +8,7 @@ import Checkout from "./Components/Checkout";
 import EditProfile from "./Components/EditForm";
 import Login from "./Components/Login";
 import SignUp from "./Components/SignUp";
+import BannerImage from "./Components/BannerImage";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
               <>
                 <Navigation />
                 <SearchFilter />
+                <BannerImage />
                 <Product />
               </>
             }

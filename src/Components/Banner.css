@@ -1,0 +1,7 @@
+.image img {
+  height: 25rem;
+  width: 94vw;
+  margin: 1.5rem auto;
+  border-bottom: 1px solid;
+  border-color: rgba(225, 225, 230, 0.9);
+}

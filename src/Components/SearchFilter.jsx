@@ -13,7 +13,7 @@ function SearchFilter() {
           ></input>
         </div>
         <div className="searchContainer__menu">
-          <Link to="/home" className="focused">
+          <Link to="/" className="focused">
             Home
           </Link>
           <Link to="/about">About</Link>

@@ -2,7 +2,7 @@ import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { Link } from "react-router-dom";
 import * as Yup from "yup";
-import "../../src/login.css";
+import "./Login.css";
 
 function Register() {
   const initialValues = {
@@ -30,7 +30,9 @@ function Register() {
       <Form>
         <div className="form">
           <div className="form-container register__container">
-            <h1>Register</h1>
+            <Link to="/" className="form__logo">
+              <h1>Artsy ScrapYard</h1>
+            </Link>
             <div className="form-control">
               <label htmlFor="name">Name:</label>
               <br />
@@ -66,7 +68,7 @@ function Register() {
             <button className="submit_button" type="submit">
               Register
             </button>
-            <Link to="/login" className="regiter_router">
+            <Link to="/login" className="register_router">
               Already have account ? Login Now!
             </Link>
           </div>

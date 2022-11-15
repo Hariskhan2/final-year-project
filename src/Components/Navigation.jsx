@@ -15,7 +15,7 @@ function Navigation() {
         <Link to="/login" className="login">
           Login
         </Link>
-        <Link to="/signup" className="signup">
+        <Link to="/register" className="signup">
           Sign Up
         </Link>
 

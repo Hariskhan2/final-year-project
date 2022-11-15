@@ -1,8 +1,9 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { Link } from "react-router-dom";
+import Logo from "../Images/Logo_1.png";
 import * as Yup from "yup";
-import "../../src/login.css";
+import "./Login.css";
 
 function Login() {
   const initialValues = {
@@ -30,7 +31,9 @@ function Login() {
       <Form>
         <div className="form">
           <div className="form-container">
-            <h1>Log In</h1>
+            <Link to="/" className="form__logo">
+              <h1>Artsy ScrapYard</h1>
+            </Link>
             <div className="form-control">
               <label htmlFor="email">Email:</label>
               <br />
@@ -56,7 +59,7 @@ function Login() {
             <button className="submit_button" type="submit">
               Login
             </button>
-            <Link to="/register" className="regiter_router">
+            <Link to="/register" className="register_router">
               Doesn't have account ? Create One!{" "}
             </Link>
           </div>

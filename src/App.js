@@ -6,6 +6,8 @@ import SearchFilter from "./Components/SearchFilter";
 import Product from "./Components/Product";
 import Checkout from "./Components/Checkout";
 import EditProfile from "./Components/EditForm";
+import Login from "./Components/Login";
+import SignUp from "./Components/SignUp";
 
 function App() {
   return (
@@ -31,6 +33,8 @@ function App() {
               </>
             }
           ></Route>
+          <Route path="/login" element={<Login />}></Route>
+          <Route path="/register" element={<SignUp />}></Route>
         </Routes>
       </BrowserRouter>
     </div>

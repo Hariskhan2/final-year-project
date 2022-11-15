@@ -9,7 +9,7 @@ function Navigation() {
   return (
     <div className="navBar">
       <div className="navBar__leftSide">
-        <h1>Logo</h1>
+        <h1>Artsy ScrapYard</h1>
       </div>
       <div className="navBar__rightSide">
         <Link to="/login" className="login">

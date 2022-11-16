@@ -10,8 +10,8 @@
 }
 
 .navBar__leftSide {
-  color: green;
-  background-color: linear-gradient(106.37deg, #267015, #66bc90, #267015);
+  color: #1ba94c;
+  padding-left: 1.5rem;
 }
 
 .navBar__rightSide {

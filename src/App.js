@@ -9,6 +9,8 @@ import EditProfile from "./Components/EditForm";
 import Login from "./Components/Login";
 import SignUp from "./Components/SignUp";
 import BannerImage from "./Components/BannerImage";
+import ProductForm from "./Components/AddProduct";
+import Footer from "./Components/Footer";
 
 function App() {
   return (
@@ -23,6 +25,7 @@ function App() {
                 <SearchFilter />
                 <BannerImage />
                 <Product />
+                <Footer />
               </>
             }
           ></Route>
@@ -37,6 +40,7 @@ function App() {
           ></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/register" element={<SignUp />}></Route>
+          <Route path="/sellnow" element={<ProductForm />}></Route>
         </Routes>
       </BrowserRouter>
     </div>

@@ -11,8 +11,9 @@ import Dashboard from "./Components/Dashboard/Dashboard";
 import RegistratioForm from "./Components/Register/Regis";
 import LoginForm from "./Components/Login/Login";
 import About from "./Components/AboutUS/About";
-import Model from "./Components/Recommendation";
+import Model from "./Components/Recommendation/model";
 import ProductDetails from "./Components/ProductDetails/ProductDetails.js";
+
 import { useState } from "react";
 import Logout from "./Components/Logout/Logout";
 

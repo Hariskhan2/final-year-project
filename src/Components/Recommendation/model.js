@@ -10,7 +10,7 @@ const weights = "/web_model/model.json";
 
 const names = ["softDrink", "detergent"];
 
-class App extends React.Component {
+class Model extends React.Component {
   state = {
     model: null,
     preview: "",
@@ -159,3 +159,5 @@ class App extends React.Component {
     );
   }
 }
+
+export default Model;

@@ -34,7 +34,7 @@ class Recommendation extends React.Component {
         </button>
         <div className="imageContainer">
           {imagesToDisplay.map((link) => (
-            <img src={link} alt="random image" key={link} />
+            <img src={link} alt="random pic" key={link} />
           ))}
         </div>
       </>

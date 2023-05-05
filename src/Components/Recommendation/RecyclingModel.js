@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import MagicDropzone from "react-magic-dropzone";
 
-import "./styles.css";
+import "./Recommendation.css";
 import Recommendation from "./RecyclingImages";
 const tf = require("@tensorflow/tfjs");
 
@@ -10,7 +10,7 @@ const weights = "/web_model/model.json";
 
 const names = ["softDrink", "detergent"];
 
-class Model extends React.Component {
+class RecyclingModel extends React.Component {
   state = {
     model: null,
     preview: "",
@@ -160,4 +160,4 @@ class Model extends React.Component {
   }
 }
 
-export default Model;
+export default RecyclingModel;

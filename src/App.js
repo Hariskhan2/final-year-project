@@ -11,7 +11,7 @@ import Dashboard from "./Components/Dashboard/Dashboard";
 import RegistratioForm from "./Components/Register/Regis";
 import LoginForm from "./Components/Login/Login";
 import About from "./Components/AboutUS/About";
-import Model from "./Components/Recommendation/model";
+import RecyclingModel from "./Components/Recommendation/RecyclingModel";
 import ProductDetails from "./Components/ProductDetails/ProductDetails.js";
 
 import { useState } from "react";
@@ -75,7 +75,7 @@ const App = () => {
             path="/recommendation"
             element={
               <>
-                <Model />
+                <RecyclingModel />
               </>
             }
           />

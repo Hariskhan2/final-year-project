@@ -7,12 +7,16 @@ import { StateProvider } from "./redux/StateProvider";
 import { initialState } from "./redux/Reducer";
 import { reducer } from "./redux/Reducer";
 
+// import { UserProvider } from "./Context/UserContext";
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <StateProvider initialState={initialState} reducer={reducer}>
-      <App />
-    </StateProvider>
+    
+      <StateProvider initialState={initialState} reducer={reducer}>
+        <App />
+      </StateProvider>
+   
   </React.StrictMode>
 );
 

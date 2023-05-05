@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { Link } from "react-router-dom";
+import { Link ,useNavigate } from "react-router-dom";
 import * as Yup from "yup";
+import axios from "axios";
 import "./Login.css";
 
 function Register() {
+  const Navigate=useNavigate()
+  const [user, setUser] = useState({ name: "", email: "", password: "" });
+  
   const initialValues = {
     name: "",
     email: "",
@@ -16,9 +20,53 @@ function Register() {
     email: Yup.string().email().required("Required Field"),
     password: Yup.string().required("Required Field!"),
   });
+  let name, value;
+  const handleChange = (e) => {
+    name = e.target.name;
+    value = e.target.value;
+    setUser({ ...user, [name]: value });
+  };
 
-  const onSubmit = (values) => {
-    console.log("values:", values);
+  const postData = async() => {
+    // store the states in the form data
+    // 
+    window.alert("hello register")
+  }
+
+  // // const onSubmit = async(e) => {
+  //   e.preventDefault()
+  //   const {name,email, password}=user
+  //   const res=await axios({
+  //     method: "POST",
+  //     url: "http://localhost:5001/api/register",
+  //     data:JSON.stringify({name,email,password})
+  //   })
+  //     .then(res => {
+  //       console.log(res)
+  //     })
+  //     .catch(error => {
+  //       console.log(error)
+  //     });
+  // };
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    const userData={ name:user.name, email:user.email, password:user.password } ;
+    const response = await axios
+      .post("/api/register", {userData})
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        if (error.response) {
+          console.log(error.response);
+          console.log("server responded");
+        } else if (error.request) {
+          console.log("network error");
+        } else {
+          console.log(error);
+        }
+      });
   };
 
   return (
@@ -40,7 +88,10 @@ function Register() {
                 type="text"
                 placeholder="Enter Your Name...."
                 className="name"
+                id="name"
                 name="name"
+                value={user.name}
+                onChange={handleChange}
               />
               <ErrorMessage name="name" />
               <br />
@@ -49,8 +100,11 @@ function Register() {
               <Field
                 type="email"
                 placeholder="Enter Your Email...."
+                id="email"
                 className="email"
                 name="email"
+                value={user.email}
+                onChange={handleChange}
               />
               <ErrorMessage name="email" />
               <br />
@@ -59,8 +113,11 @@ function Register() {
               <Field
                 type="password"
                 placeholder="Enter Your Password...."
+                id="password"
                 className="password"
                 name="password"
+                value={user.password}
+                onChange={handleChange}
               />
               <ErrorMessage name="password" />
               <br />

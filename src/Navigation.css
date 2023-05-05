@@ -1,23 +1,58 @@
 .navBar {
   height: 4.3rem;
-  width: 100vw;
+  width: 97%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0px 1.2rem;
   border-bottom: 1px solid;
   border-color: rgba(230, 235, 225, 0.6);
+  background-color: #1ba94c;
+}
+.searchContainer__input input {
+  display:flex;
+  border: 0;
+  outline: 0;
+  border-radius: 10px;
+  width: 30rem;
+  height: 3rem;
+  /* border-right: 3px solid rgba(225, 225, 230, 0.9); */
+  font-size: 1rem;
+  color: #1ba94c;
+  font-weight: 300;
+  background-color: rgba(255, 255, 255, 0.982);
+  padding: 20rem 60rem;
+}
+/* input[type="text"]{
+  padding-left:5px;
+} */
+/* .search_input{
+ 
+} */
+/* ::placeholder {
+ padding-left: 20px;
+  font-style: italic;
+  font-size: 1em;
+  color: mintcream;
+  background: thistle;
+  padding: 5px;
+} */
+.searchContainer__input input::placeholder {
+  font-weight: bold;
+  color: darkgray;
 }
 
 .navBar__leftSide {
-  color: #1ba94c;
+  color: white;
   padding-left: 1.5rem;
+  font-weight: 500 !important;
 }
 
 .navBar__rightSide {
   display: flex;
   align-items: center;
   margin-right: 3rem;
+  font-weight: 500;
 }
 
 .navBar__rightSide a {
@@ -27,31 +62,62 @@
 
 .navBar__rightSide .login,
 .navBar__rightSide .signup {
-  height: 1.5rem;
-  width: 4rem;
-  padding: 0.5rem 1.2rem;
-  border-radius: 10px;
+  height: 1.8rem;
+  width: 4rem !important;
+  padding: 0.8rem 1.2rem;
+  border-radius: 8px;
   transition: 0.5s all;
 }
-
 .navBar__rightSide .login {
   border: 1px solid;
-  border-color: #1ba94c;
-  color: #1ba94c;
-  font-weight: bolder;
-}
-
-.navBar__rightSide .signup {
-  background-color: #1ba94c;
+  border-color: white;
   color: white;
+  font-weight: bolder;
+  
+}
+.nav_profile{
+  width:2.5rem;
+  height:2.5rem;
+}
+.nav_dashboard{
+  color: #1ba94c !important;
+  font-weight: bolder !important;
+  text-decoration:none !important;
+  text-transform: lowercase !important;
+  display: flex;
+  flex-direction: column;
+  padding: 0rem 1.2rem !important;
+  margin: 1.5rem !important;
+  
+}
+/* .MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1e6y48t-MuiButtonBase-root-MuiButton-root{
+  height:20px !important;
+} */
+.nav_dashboard::first-letter{
+  text-transform: uppercase !important;
+}
+MenuItem >Link{
+  text-decoration: none;
+}
+.nav_dashboard:hover{
+  background-color: rgba(235, 245, 230, 0.6) !important; 
+}
+.navBar__rightSide .signup {
+  background-color: white;
+  color: #1ba94c;
+  
+width: 50px !important;
 }
 
 .navBar__rightSide .login:hover {
-  background-color: rgba(235, 245, 230, 0.6);
+  background-color: rgb(235, 245, 230);
+  color: #1ba94c;
 }
 
 .navBar__rightSide .signup:hover {
   background-color: green;
+  color:#fff;
+  border:#fff 1px solid;
 }
 
 .navBar__optionBasket {
@@ -60,5 +126,10 @@
 
 .navBar__basket {
   margin-right: 1rem;
-  color: #1ba94c;
+  color: white;
+}
+
+.navBar__basketCount{
+  text-decoration: none;
+  color: #fff;
 }

@@ -8,32 +8,50 @@
 }
 
 .card {
+  position: relative;
   display: flex;
+  align-items:flex-start;
   justify-content: space-around;
   flex-wrap: wrap;
   height: 100vh;
   gap: 2.3rem;
   margin-top: 3.5rem;
-}
+  
 
-.card__Container {
-  height: 28rem;
+  
+}
+.card a{
+  text-decoration: none !important;
+  color:#000
+}
+.product_image{
   width: 23vw;
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  height: 15rem;
+  border-top-left-radius: 0.8rem;
+  border-top-right-radius: 0.8rem;
+
+}
+.card__Container {
+  
+  height: 30rem;
+  width: 23vw;
+  border: 4px solid rgba(0, 0, 0, 0.678);
   border-radius: 0.8rem;
   margin: 1.5rem;
   transition: 0.7s all ease-in;
+  /* text-decoration: none !important; */
 }
 
 .card__header {
-  padding-top: 1.5rem;
-  height: 12rem;
-  border-bottom: 0.8px solid lightgray;
+  
+  height: 15rem;
+  border-bottom: 0.8px solid rgba(0, 0, 0, 0.678);
+  text-decoration: none !important;
 }
 
 .card__header img {
-  height: 9rem;
-  object-fit: cover;
+ 
+  object-fit:cover;
 }
 
 .card__body {
@@ -43,12 +61,14 @@
 
 .card__body h3 {
   text-transform: uppercase;
+  
 }
 
 .card__description {
   opacity: 0.6;
   letter-spacing: 0.8px;
   line-height: 1.1rem;
+
 }
 
 .card__footer {
@@ -64,12 +84,14 @@
 }
 
 .card__button {
-  margin-top: -2rem;
+  margin-top: 1.9rem;
+  position: relative;
+  margin-left:2.5rem;
 }
 
 .card__button button {
   height: 3rem;
-  width: 100%;
+  width: 80%;
   background-color: #1ba94c;
   color: white;
   border-radius: 0.5rem;
@@ -78,6 +100,7 @@
   font-size: 1.3rem;
   transition: 0.8s all ease-in;
   cursor: pointer;
+
 }
 
 .card__Container:hover {

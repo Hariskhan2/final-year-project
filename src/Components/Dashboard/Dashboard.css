@@ -1,0 +1,39 @@
+
+.main {
+  font-family: "Inter", sans-serif;
+  background: linear-gradient(
+    106.37deg,
+    #e8ffe3 29.63%,
+    #e3f1f9 51.55%,
+    #f7f6e4 90.85%
+  );
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  display: flex;
+}
+.AppGlass{
+  display:grid;
+  height: 97%;
+  width: 97%;
+  border-radius: 2rem;
+  background-color: var(--glass);
+  overflow:auto;
+  grid-template-columns: 11rem 80% ;
+  gap:10px;
+}
+@media screen and (max-width: 1200px) {
+  .AppGlass{
+    grid-template-columns: 10%  80%;
+    overflow-y: scroll;
+  } 
+}
+
+@media screen and (max-width: 768px) {
+  .AppGlass{
+    grid-template-columns: 1fr;
+  } 
+  .AppGlass::-webkit-scrollbar{
+    display: none;
+  }
+}

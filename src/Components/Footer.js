@@ -5,6 +5,7 @@ import { UilFacebook,UilInstagramAlt,UilTwitter, UilYoutube  } from '@iconscout/
 
 const Footer = () => {
   return (
+    <div className='full-footer'>
     <div className="Footer">
       <div className="line_1">
         <h4>Popular Categories</h4>
@@ -41,6 +42,7 @@ const Footer = () => {
             <Link to=''><UilTwitter/></Link>
             <Link to=''><UilInstagramAlt/></Link>
         </div>
+    </div>
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import React from "react";
-import "../Recommendation.css";
+import "./Recommendation.css";
 import images from "./Imagelinks";
 
 class Recommendation extends React.Component {

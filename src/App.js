@@ -11,6 +11,7 @@ import Dashboard from "./Components/Dashboard/Dashboard";
 import RegistratioForm from "./Components/Register/Regis";
 import LoginForm from "./Components/Login/Login";
 import About from "./Components/AboutUS/About";
+import Model from "./Components/Recommendation";
 import ProductDetails from "./Components/ProductDetails/ProductDetails.js";
 import { useState } from "react";
 import Logout from "./Components/Logout/Logout";
@@ -69,6 +70,14 @@ const App = () => {
 
           <Route path="/about" element={<About />} />
           <Route path="/products/:id" exect element={<ProductDetails />} />
+          <Route
+            path="/recommendation"
+            element={
+              <>
+                <Model />
+              </>
+            }
+          />
         </Routes>
         <Footer />
       </BrowserRouter>

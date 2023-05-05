@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import MagicDropzone from "react-magic-dropzone";
 
-import "./styles.css";
+import "./Recommendation.css";
 import Recommendation from "./RecyclingImages";
 const tf = require("@tensorflow/tfjs");
 

@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import MagicDropzone from "react-magic-dropzone";
 
 import "./styles.css";
-import Recommendation from "./Components/RecommendationApi";
+import Recommendation from "./RecyclingImages";
 const tf = require("@tensorflow/tfjs");
 
 const weights = "/web_model/model.json";
@@ -159,6 +159,3 @@ class App extends React.Component {
     );
   }
 }
-
-const rootElement = document.getElementById("root");
-ReactDOM.render(<App />, rootElement);

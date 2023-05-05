@@ -1,6 +1,6 @@
 import React from "react";
-import images from "../Imagelinks";
-import "../styles.css";
+import "../Recommendation.css";
+import images from "./Imagelinks";
 
 class Recommendation extends React.Component {
   constructor(props) {

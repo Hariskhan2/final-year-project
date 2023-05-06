@@ -30,8 +30,8 @@ const Orders = () => {
       };
       
       const res = await axios.get('/orders/', config);
-      console.log(res)
-       const allordersArray=res.data.orders
+      console.log(res.data)
+       const allordersArray=res.data.allOrders
       if(Array.isArray(allordersArray)){
         setOrders(allordersArray);
       }
@@ -43,7 +43,16 @@ const Orders = () => {
     };
     fetchProducts();
   }, []);
-
+  const handleDelete = async (orderId) => {
+    const token = localStorage.getItem('artsy-jwt');
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    };
+    const res = await axios.delete(`/orders/delete/${orderId}`, config);
+    
+  }
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
@@ -101,20 +110,24 @@ const Orders = () => {
                 .map((row) => (
                   <TableRow
                     tabIndex={-1}
-                    key={row.name}
+                    key={row.title}
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                   >
                     <TableCell component="th" scope="row">
-                      {row.name}
+                      {row.title}
                     </TableCell>
-                    <TableCell align="left">{row.trackingId}</TableCell>
-                    <TableCell align="left">{row.date}</TableCell>
-                    <TableCell align="left">
-                      <span className="status">{row.status}</span>
-                    </TableCell>
+                    <TableCell align="left">{row._id}</TableCell>
+                    <TableCell align="left">{row.createdAt}</TableCell>
+                    
                     <TableCell align="left" className="Details">
                       Detail
                     </TableCell>
+                    <TableCell align="left" className="Details">
+        <button variant="contained" color="primary" onClick={() => handleDelete(row._id)}>
+          Delete
+        </button>
+      </TableCell>
+
                   </TableRow>
                 ))}
             </TableBody>

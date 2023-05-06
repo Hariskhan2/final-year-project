@@ -42,7 +42,7 @@ function Navigation({ loggedIn, setLoggedIn }) {
             </Button>
           </>
         ) : (
-          <div>
+          <div className="right">
             <Link to="/login" className="login">
               Login
             </Link>

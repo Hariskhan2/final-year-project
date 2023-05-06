@@ -9,7 +9,7 @@ import EditProfile from "../pages/EditForm/EditForm";
 const Paths = () => {
   return (
     <Routes>
-      <Route path="/dashboard" element={<Homepage />} />
+      {/* <Route path="/dashboard" element={<Homepage />} /> */}
 
       <Route path="/dashboard/products" element={<Products />} />
       <Route path="/dashboard/orders" element={<Orders />} />

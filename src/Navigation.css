@@ -89,6 +89,12 @@
   margin: 1.5rem !important;
   
 }
+.right{
+  display:flex;
+}
+.right a{
+  display:flex;
+}
 /* .MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1e6y48t-MuiButtonBase-root-MuiButton-root{
   height:20px !important;
 } */
@@ -105,9 +111,13 @@ MenuItem >Link{
   background-color: white;
   color: #1ba94c;
   
+/* width: 50px !important; */
+}
+.navBar__rightSide .login {
+  
+  
 width: 50px !important;
 }
-
 .navBar__rightSide .login:hover {
   background-color: rgb(235, 245, 230);
   color: #1ba94c;

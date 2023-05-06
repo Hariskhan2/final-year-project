@@ -1,6 +1,6 @@
 body {
-  color: rgba(64, 64, 64, 0.65);
-  font: 500 1em Helvetica, sans-serif;
+  
+  /* font: 500 1em Helvetica, sans-serif; */
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizelegibility;
   margin: 0;
@@ -11,9 +11,9 @@ body {
   outline: none !important;
 }
 
-* {
+/* * {
   box-sizing: border-box;
-}
+} */
 
 .Dropzone-img {
   max-width: calc(100vw - 60px);
@@ -66,7 +66,7 @@ body {
   right: 10px;
 }
 
-button {
+.butn {
   height: 3rem;
   width: 16rem;
   border-radius: 1rem;
@@ -86,7 +86,7 @@ button {
   margin-top: 1.5rem;
 }
 
-img {
+.image {
   height: 23rem;
   width: 25%;
   margin: 3rem;

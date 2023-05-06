@@ -29,12 +29,12 @@ class Recommendation extends React.Component {
 
     return (
       <>
-        <button type="submit" onClick={() => this.handleClick()}>
+        <button type="submit"  className="butn" onClick={() => this.handleClick()}>
           Get Recommendation
         </button>
         <div className="imageContainer">
           {imagesToDisplay.map((link) => (
-            <img src={link} alt="random pic" key={link} />
+            <img src={link} className="image" alt="random pic" key={link} />
           ))}
         </div>
       </>

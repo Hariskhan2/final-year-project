@@ -44,7 +44,17 @@ const Products = () => {
     };
     fetchProducts();
   }, []);
-
+  const handleDelete = async (productId) => {
+    const token = localStorage.getItem('artsy-jwt');
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    };
+    const res = await axios.delete(`/products/delete/${productId}`, config);
+    
+   
+  }
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
@@ -117,6 +127,11 @@ const Products = () => {
                   <TableCell align="left" className="Details">
                     Detail
                   </TableCell>
+                  <TableCell align="left" className="Details">
+        <button variant="contained" color="primary" onClick={() => handleDelete(row._id)}>
+          Delete
+        </button>
+      </TableCell>
                 </TableRow>
               ))}
           </TableBody>

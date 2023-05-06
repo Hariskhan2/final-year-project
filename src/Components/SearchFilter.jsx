@@ -10,16 +10,16 @@ function SearchFilter() {
           <Link to="/" className="focused">
             Home
           </Link>
-          <Link to="/about">
+          <Link to="/about" className="btn">
             <span>About</span>
           </Link>
 
-          <Link to="/contact">Contact</Link>
-          <Link to="/FAQ's">FAQ's</Link>
-          <Link to="/sellnow" className="searchContainer__Sell">
+          <Link to="/contact" className="btn">Contact</Link>
+          
+          <Link to="/sellnow" className="searchContainer__Sell btn">
             Sell
           </Link>
-          <Link to="/recommendation" className="searchContainer__Sell">
+          <Link to="/recommendation" className="searchContainer__Sell btn">
             Recycling
           </Link>
         </div>

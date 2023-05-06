@@ -1,15 +1,22 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import "./Product.css";
+import { useNavigate } from "react-router-dom";
 import { useStateValue } from "../redux/StateProvider";
 import { Link } from "react-router-dom";
 
 function Product() {
   const [{ basket }, dispatch] = useStateValue();
-  const [select, setSelect] = useState();
-  const [products, setProducts] = useState([]);
+  // const [select, setSelect] = useState();
+  
+  const navigate = useNavigate();
 
+  const [products, setProducts] = useState([]);
+  const handlesubmit=()=>{
+    
+  }
   useEffect(() => {
+
     const fetchData = async () => {
       const response = await Axios.get("/products", {
         headers: {
@@ -36,7 +43,7 @@ function Product() {
   }, []);
 
   return (
-    <div>
+    <div className="product_catalog">
       {products.length === 0 ? (
         <p>NO PRODUCTS TO SHOW</p>
       ) : (
@@ -50,7 +57,7 @@ function Product() {
               // console.log(_id)
               return (
                 <div className="card__Container" key={_id}>
-                  <Link to={`/products/${_id}`} key={_id} >
+                  <Link to={`/products/${_id}`} key={_id}   >
                     <div className="card__header">
                       <img
                         src={photo.url[0]}
@@ -70,7 +77,7 @@ function Product() {
                   </div>
                   <div className="card__footer">
                     <p className="card__price">
-                      <strong>${price}</strong>
+                      <strong>Rs{price}</strong>
                     </p>
                   </div>
                   <div className="card__button">
@@ -81,11 +88,12 @@ function Product() {
                           type: "ADD_TO_BASKET",
                           item: {
                             id: _id,
-
-                            image: photo[0],
+                    title:title,
+                            image: photo.url[0],
                             price: price,
                           },
                         });
+                        navigate("/checkout")
                       }}
                     >
                       Add to cart

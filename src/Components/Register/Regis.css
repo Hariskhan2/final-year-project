@@ -21,11 +21,11 @@ form {
     display: flex;
     align-items:left;
     width:60rem !important;
-    height:90rem !important;
+    /* height:90rem !important;git  */
     justify-content: center;
     align-items: center;
     margin-left: 18rem !important;
-    margin-top: 2rem !important;
+    margin-top: 0.5rem !important;
     
   
   }

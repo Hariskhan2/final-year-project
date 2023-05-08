@@ -13,6 +13,8 @@ import LoginForm from "./Components/Login/Login";
 import About from "./Components/AboutUS/About";
 import RecyclingModel from "./Components/Recommendation/RecyclingModel";
 import ProductDetails from "./Components/ProductDetails/ProductDetails.js";
+import AllProducts from "./Components/AllProducts/AllProducts.js";
+
 
 import { useState } from "react";
 import Logout from "./Components/Logout/Logout";
@@ -71,6 +73,7 @@ const App = () => {
 
           <Route path="/about" element={<About />} />
           <Route path="/products/:id" exect element={<ProductDetails />} />
+          <Route path="/allproducts" exect element={<AllProducts />} />
           <Route
             path="/recommendation"
             element={

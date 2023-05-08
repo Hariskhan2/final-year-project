@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import "./Regis.css";
@@ -15,6 +15,8 @@ function RegistrationForm({ setLoggedIn }) {
     dobMonth: "",
     dobYear: "",
     contactPhone: "",
+    addressArea:"",
+    addressCity:"",
     // photo: null,
     password: "",
   });
@@ -48,6 +50,18 @@ function RegistrationForm({ setLoggedIn }) {
     setUser({
       ...user,
       gender: e.target.value,
+    });
+  };
+  const handleAreaChange = (e) => {
+    setUser({
+      ...user,
+      addressArea: e.target.value,
+    });
+  };
+  const handleCityChange = (e) => {
+    setUser({
+      ...user,
+      addressCity: e.target.value,
     });
   };
   const handleAboutMeChange = (e) => {
@@ -258,10 +272,49 @@ function RegistrationForm({ setLoggedIn }) {
                 className="inputt"
                 value={user.contactPhone}
                 onChange={handleContactPhoneChange}
-                data-placeholder="+92 |"
+                placeholder="+9230--------"
               />
             </label>
             <br />
+            <div className="dob">
+            <label className=" labell " htmlFor="dob">
+              Address
+            </label>
+            <br/>
+            <span>
+            <label className=" labell " htmlFor="area">
+            Area
+            </label>
+              <input
+                type="text"
+                id="addressArea"
+                name="addressArea"
+                placeholder="Location Area"
+                
+                required
+                value={user.addressArea}
+                onChange={handleAreaChange}
+              />
+              </span>
+              <br/>
+              <span>
+              <label className=" labell " htmlFor="city">
+            City
+            </label>
+              <input
+                type="text"
+                id="addressCity"
+                name="addressCity"
+                placeholder="City"
+               
+                required
+                value={user.addressCity}
+                onChange={handleCityChange}
+              />
+              
+            </span>
+          </div>
+          <br />
             <div className="contact">
               <label className="label" htmlFor="email">
                 Email
@@ -300,7 +353,10 @@ function RegistrationForm({ setLoggedIn }) {
 
           <br />
           <button type="submit">Register</button>
+          <br/> <br/>
+         <div className="login_link"> Already have an account?<Link to={"/login"} className='span_login'>Log in</Link></div>
         </form>
+        
       </div>
     </>
   );

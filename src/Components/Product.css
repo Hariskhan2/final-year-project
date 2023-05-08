@@ -9,6 +9,34 @@
 .product_catalog{
   margin-top:10rem;
   position:relative;
+  /* height:90rem; */
+}
+.btn-products{
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color:#1ba94c;
+  padding:15px 20px;
+  color: white;
+  border-radius: 0.3rem;
+  font-size: 1.3rem;
+
+  cursor:pointer;
+  text-decoration: none;
+}
+.btn-products:hover {
+  background-color: rgb(3, 80, 3);
+  cursor:pointer;
+}
+.cards_body{
+  position: relative;
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  flex-direction: column;
+  /* height: ; */
+  
 }
 .card {
   position: relative;
@@ -16,10 +44,10 @@
   align-items:flex-start;
   justify-content: flex-start;
   flex-wrap: wrap;
-  height: 100vh;
+  /* height: ; */
   gap: 2.3rem;
   margin-top: 2.5rem;
-  margin-left:2rem;
+  margin-left:9rem;
   
 
   
@@ -98,7 +126,7 @@
   width: 80%;
   background-color: #1ba94c;
   color: white;
-  border-radius: 0.5rem;
+  border-radius: 0.3rem;
   outline: none;
   border: 0;
   font-size: 1.3rem;
@@ -112,5 +140,6 @@
 }
 
 .card__button button:hover {
-  background-color: green;
+  background-color: rgb(3, 80, 3);
+  cursor:pointer;
 }

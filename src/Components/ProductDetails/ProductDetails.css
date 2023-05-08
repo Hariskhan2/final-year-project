@@ -5,15 +5,96 @@
     width: 100%;
     height: 100%;
     margin-top: 30px;
+    margin-left: 110px;
+    margin-bottom: 40px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     
   }
-  
+  .productt-card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 30rem;
+    width: 15rem;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+  }
+  .no-icon{
+    margin-right: 5px;
+  }
+  .profile-image{
+    border-radius: 50%;
+    height:80px;
+    width:80px;
+    vertical-align: super;
+  }
+  .owner_info{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2.0rem;
+    flex-direction: row;
+  }
+  .number-show{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height:3rem;
+    width:17rem;
+    background-color: rgb(23, 37, 54);
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    color:white;
+    margin-top: 10px;
+    margin-left: 25px;;
+  }
+  .what-show{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height:3rem;
+    width:17rem;
+    background-color: rgb(58, 197, 58);
+    box-shadow: 0px 2px 8px rgba(8, 245, 75, 0.3);
+    border-radius: 5px;
+    
+    margin-top: 10px;
+    margin-left: 25px;;
+  }
+  .what-show a{
+    text-decoration:none;
+    color:white;
+  }
+  .owner-det{
+    margin-left:40px;
+  }
+  .owner-card{
+    display:flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    height:17rem;
+    width:20rem;
+    padding:20px 20px;
+    background-color: white;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+  }
   .product-details {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    gap: 6.3rem;
+    align-items: space-between;
+    
+  }
+  .productt-details{
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 80%;

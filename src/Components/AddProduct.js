@@ -10,10 +10,21 @@ const AddProductForm = () => {
     price: "",
     quantity: "",
     tags: "",
+    isScrap:false,
     weight:"",
     photo: [],
   });
   const Navigate = useNavigate();
+  const handleisScrapChange = (event) => {
+    const target = event.target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const name = target.name;
+  
+    setProduct({
+      ...product,
+      [name]: value
+    });
+  }
   const handleChange = (e) => {
     if (e.target.name === "photo") {
       setProduct({
@@ -38,7 +49,7 @@ const AddProductForm = () => {
     formData.append("quantity", product.quantity);
     formData.append("weight", product.weight);
     formData.append("tags", product.tags);
-
+    formData.append('isScrap', product.isScrap); 
     for (let i = 0; i < product.photo.length; i++) {
       formData.append("photo", product.photo[i] );
     }
@@ -140,6 +151,20 @@ const AddProductForm = () => {
               onChange={handleChange}
             />
           </label>
+          <br />
+          <label className="label_check">
+            
+            <input
+              className="input"
+              type="checkbox"
+              name="isScrap"
+              value={product.isScrap}
+              onChange={handleisScrapChange}
+            />
+            It is a Scrap
+          </label>
+
+          
           <br />
           <label className="label">
             Estimated Weight:

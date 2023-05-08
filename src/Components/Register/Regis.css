@@ -17,7 +17,15 @@ form {
     justify-content:flex-start;
     
   }
-  .form_mainnn {
+  .login_link{
+    
+    width: 20rem;
+  }
+.span_login{
+  text-decoration:none;
+  color: #4caf50;
+}  
+.form_mainnn {
     display: flex;
     align-items:left;
     width:60rem !important;

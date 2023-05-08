@@ -31,7 +31,7 @@ function Navigation({ loggedIn, setLoggedIn }) {
               Logout
             </Link>
             <Button style={{ height: "70px" }}>
-              <Link to="/dashboard">
+              <Link to="/dashboard/products">
                 <FontAwesomeIcon
                   className="profile"
                   icon={faUser}

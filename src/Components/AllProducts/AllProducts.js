@@ -1,38 +1,30 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
-import "./Product.css";
+import "./AllProducts.css";
 import { useNavigate } from "react-router-dom";
-import { useStateValue } from "../redux/StateProvider";
+import { useStateValue } from "../../redux/StateProvider";
 import { Link } from "react-router-dom";
 
-function Product() {
+function AllProducts() {
   const [{ basket }, dispatch] = useStateValue();
-  // const [select, setSelect] = useState();
+  const [select, setSelect] = useState(true);
   
   const navigate = useNavigate();
 
   const [products, setProducts] = useState([]);
-  const handlesubmit=()=>{
-    
-  }
-  useEffect(() => {
+  const [isScrap, setIsScrap] = useState(true);
 
+  useEffect(() => {
     const fetchData = async () => {
       const response = await Axios.get("/products", {
         headers: {
-          //to get and authorize with token we will use inheader a authoriztion (mandatory)
-
-          //also to post json file i have to use content type (mandatory)
           "Content-Type": "multipart/form-data",
         },
       });
       const allProductsArray = response.data.allProducts;
-      // console.log(response.data)
       if (allProductsArray) {
         setProducts(allProductsArray);
-      }
-      // console.log(a)
-      else if (
+      } else if (
         response.data.hasOwnProperty("Note") &&
         response.data.Note === "No Products to show"
       ) {
@@ -42,20 +34,33 @@ function Product() {
     fetchData();
   }, []);
 
+  const handleScrapClick = () => {
+    setIsScrap(true);
+  };
+
+  const handleNonScrapClick = () => {
+    setIsScrap(false);
+  };
+
+  const filteredProducts = products.filter(product => {
+    return product.isScrap === isScrap;
+  });
+
   return (
-    <div className="product_catalog">
-      {products.length === 0 ? (
+    <div className="product_catalogg">
+        <h1 className="product__title">PRODUCT CATALOG</h1>
+      <div className="differ-button" >
+        <button onClick={handleScrapClick}> Scrap Products</button>
+        <button onClick={handleNonScrapClick}>Art Products</button>
+      </div>
+      {filteredProducts.length === 0 ? (
         <p>NO PRODUCTS TO SHOW</p>
       ) : (
         <>
-          <h1 className="product__title">Product Catalog</h1>
-          <div className="cards_body" >
-            <span className="card">
-            {products.slice(0, 6).map((product, key) => {
-              // console.log(product);
+          
+          <div className="card">
+            {filteredProducts.map((product, key) => {
               const { _id, photo, title, price, description } = product;
-
-              // console.log(_id)
               return (
                 <div className="card__Container" key={_id}>
                   <Link to={`/products/${_id}`} key={_id}   >
@@ -89,7 +94,7 @@ function Product() {
                           type: "ADD_TO_BASKET",
                           item: {
                             id: _id,
-                    title:title,
+                            title:title,
                             image: photo.url[0],
                             price: price,
                           },
@@ -103,15 +108,11 @@ function Product() {
                 </div>
               );
             })}
-            </span>
-            <span >
-            <Link to={"/allproducts"}><button className="btn-products">All Products</button></Link></span>
           </div>
-          
         </>
       )}
     </div>
   );
 }
 
-export default Product;
+export default AllProducts;

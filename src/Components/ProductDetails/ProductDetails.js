@@ -26,7 +26,7 @@ const ProductDetails = () => {
       setProduct(response.data.product);
       // setOwner_id(response.data.product.owner_id)
       // console.log(response.data.product.owner_id)
-      console.log(response.data.user);
+      console.log(response.data.product);
       setOwner(response.data.user);
       if (response.data.user.profilePic.Body.data) {
         const buff = response.data.user.profilePic.Body.data;
@@ -87,7 +87,7 @@ const ProductDetails = () => {
                       item: {
                         title: product.title,
                         id: product._id,
-
+                        // owner_id:product.owner_id,
                         image: product.photo.url[0],
                         price: product.price,
                       },

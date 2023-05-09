@@ -113,7 +113,7 @@ function RegistrationForm({ setLoggedIn }) {
         },
       })
       .then((res) => {
-        console.log(res.data.token);
+        console.log(res);
         setLoggedIn(true);
         localStorage.setItem("artsy-jwt", res.data.token);
         navigate("/");

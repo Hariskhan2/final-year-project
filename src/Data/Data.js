@@ -19,11 +19,11 @@ import img3 from "../imgs/img3.png";
 
 // Sidebar Data
 export const SidebarData = [
-  // {
-  //   icon: UilEstate,
-  //   heading: "Dashboard",
-  //   route: "/dashboard"
-  // },
+  {
+    icon: UilEstate,
+    heading: "Dashboard",
+    route: "/dashboard"
+  },
   {
     icon: UilPackage,
     heading: 'Products',

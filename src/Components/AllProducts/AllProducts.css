@@ -1,149 +1,133 @@
 .product__title {
-    margin-top: 2rem;
-    font-size: 1.8rem;
-    color: #1ba94c;
-    font-weight: bold;
-    text-align: center;
-    text-decoration: underline;
-  }
-  .product_catalogg{
-    margin-top:5rem;
-    position:relative;
-  }
-  .card {
-    position: relative;
-    display: flex;
-    align-items:flex-start;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    /* height: 100vh; */
-    gap: 2.3rem;
-    margin-top: 2.5rem;
-    /* margin-left:2rem; */
-    
-  
-    
-  }
-  .differ-button{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-gap:2.3rem;
-  }
+  margin-top: 2rem;
+  font-size: 1.8rem;
+  color: #1ba94c;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: underline;
+}
+.product_catalogg {
+  margin-top: 5rem;
+  position: relative;
+}
+.card {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  /* height: 100vh; */
+  gap: 2.3rem;
+  margin-top: 2.5rem;
+  /* margin-left:2rem; */
+}
+.differ-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.3rem;
+}
 
-  
+.differ-button button {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1ba94c;
+  padding: 15px 20px;
+  color: white;
+  border-radius: 0.3rem;
+  font-size: 1.3rem;
 
+  cursor: pointer;
+  text-decoration: none;
+}
+.differ-button button :hover {
+  background-color: rgb(3, 80, 3);
+  cursor: pointer;
+}
 
-  .differ-button button{
+.card a {
+  text-decoration: none !important;
+  color: #000;
+}
+.product_image {
+  width: 20vw;
+  height: 15rem;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+.card__Container {
+  height: 30rem;
+  width: 20vw;
+  border: 0.5px solid rgb(132, 132, 132);
+  border-radius: 0.5rem;
+  margin: 1.5rem;
+  transition: 0.7s all ease-in;
+  /* text-decoration: none !important; */
+}
 
-    margin-top: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color:#1ba94c;
-    padding:15px 20px;
-    color: white;
-    border-radius: 0.3rem;
-    font-size: 1.3rem;
-  
-    cursor:pointer;
-    text-decoration: none;
-  }
-  .differ-button button
-    :hover {
-    background-color: rgb(3, 80, 3);
-    cursor:pointer;
-  }
+.card__header {
+  height: 15rem;
+  border-bottom: 0.8px solid rgba(0, 0, 0, 0.678);
+  text-decoration: none !important;
+}
 
-  .card a{
-    text-decoration: none !important;
-    color:#000
-  }
-  .product_image{
-    width: 20vw;
-    height: 15rem;
-    border-top-left-radius: 0.5rem;
-    border-top-right-radius: 0.5rem;
-  
-  }
-  .card__Container {
-    
-    height: 30rem;
-    width: 20vw;
-    border: 0.5px solid rgb(132, 132, 132);
-    border-radius: 0.5rem;
-    margin: 1.5rem;
-    transition: 0.7s all ease-in;
-    /* text-decoration: none !important; */
-  }
-  
-  .card__header {
-    
-    height: 15rem;
-    border-bottom: 0.8px solid rgba(0, 0, 0, 0.678);
-    text-decoration: none !important;
-  }
-  
-  .card__header img {
-   
-    object-fit:cover;
-  }
-  
-  .card__body {
-    text-align: left;
-    padding: 0 0.8rem;
-  }
-  
-  .card__body h3 {
-    text-transform: uppercase;
-    
-  }
-  
-  .card__description {
-    opacity: 0.6;
-    letter-spacing: 0.8px;
-    line-height: 1.1rem;
-  
-  }
-  
-  .card__footer {
-    display: flex;
-    justify-content: space-between;
-    padding: 0 1.3rem;
-  }
-  
-  .card__rating {
-    display: flex;
-    position: relative;
-    top: -0.74rem;
-  }
-  
-  .card__button {
-    margin-top: 1.9rem;
-    position: relative;
-    margin-left:2.5rem;
-  }
-  
-  .card__button button {
-    height: 3rem;
-    width: 80%;
-    background-color: #1ba94c;
-    color: white;
-    border-radius: 0.3rem;
-    outline: none;
-    border: 0;
-    font-size: 1.3rem;
-    transition: 0.8s all ease-in;
-    cursor: pointer;
-  
-  }
-  
-  .card__Container:hover {
-    cursor:pointer;
-  }
-  
-  .card__button button:hover {
-    background-color: rgb(3, 80, 3);
-    cursor:pointer;
-  }
-  
+.card__header img {
+  object-fit: cover;
+}
+
+.card__body {
+  text-align: left;
+  padding: 0 0.8rem;
+}
+
+.card__body h3 {
+  text-transform: uppercase;
+}
+
+.card__description {
+  opacity: 0.6;
+  letter-spacing: 0.8px;
+  line-height: 1.1rem;
+}
+
+.card__footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1.3rem;
+}
+
+.card__rating {
+  display: flex;
+  position: relative;
+  top: -0.74rem;
+}
+
+.card__button {
+  margin-top: 1.9rem;
+  position: relative;
+  margin-left: 2.5rem;
+}
+
+.card__button button {
+  height: 3rem;
+  width: 80%;
+  background-color: #1ba94c;
+  color: white;
+  border-radius: 0.3rem;
+  outline: none;
+  border: 0;
+  font-size: 1.3rem;
+  transition: 0.8s all ease-in;
+  cursor: pointer;
+}
+
+.card__Container:hover {
+  cursor: pointer;
+}
+
+.card__button button:hover {
+  background-color: rgb(3, 80, 3);
+  cursor: pointer;
+}

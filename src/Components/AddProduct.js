@@ -10,21 +10,21 @@ const AddProductForm = () => {
     price: "",
     quantity: "",
     tags: "",
-    isScrap:false,
-    weight:"",
+    isScrap: false,
+    weight: "",
     photo: [],
   });
   const Navigate = useNavigate();
   const handleisScrapChange = (event) => {
     const target = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const value = target.type === "checkbox" ? target.checked : target.value;
     const name = target.name;
-  
+
     setProduct({
       ...product,
-      [name]: value
+      [name]: value,
     });
-  }
+  };
   const handleChange = (e) => {
     if (e.target.name === "photo") {
       setProduct({
@@ -49,25 +49,24 @@ const AddProductForm = () => {
     formData.append("quantity", product.quantity);
     formData.append("weight", product.weight);
     formData.append("tags", product.tags);
-    formData.append('isScrap', product.isScrap); 
+    formData.append("isScrap", product.isScrap);
     for (let i = 0; i < product.photo.length; i++) {
-      formData.append("photo", product.photo[i] );
+      formData.append("photo", product.photo[i]);
     }
     axios
-    .post("/products/new", formData, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "multipart/form-data",
-      },
-    })
-    .then((res) => {
-      console.log(res.data);
-      Navigate("/");
-    })
-    .catch((err) => console.log(err));
-};
-    // send formData to backend
-  
+      .post("/products/new", formData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      .then((res) => {
+        console.log(res.data);
+        Navigate("/");
+      })
+      .catch((err) => console.log(err));
+  };
+  // send formData to backend
 
   const handleRemoveImage = (index) => {
     const updatedImages = [...product.photo];
@@ -80,13 +79,12 @@ const AddProductForm = () => {
 
   return (
     <>
-     
       <div className="form_main">
-        <form >
-        <div>
-        <h2 className="head">Sell Your Scrap</h2>
-      </div>
-          <span className='tips'>
+        <form>
+          <div>
+            <h2 className="head">Sell Your Product</h2>
+          </div>
+          <span className="tips">
             <h4>Tips for getting a fast selling:</h4>
             <ul>
               <li>
@@ -117,10 +115,11 @@ const AddProductForm = () => {
               onChange={handleChange}
             />
           </label>
-          <br /><br />
+          <br />
+          <br />
           <label className="label">
             Description
-            <br /> 
+            <br />
             <textarea
               className="des_area"
               name="description"
@@ -129,7 +128,8 @@ const AddProductForm = () => {
             />
           </label>
 
-          <br /><br />
+          <br />
+          <br />
           <label className="label">
             Tags
             <br />
@@ -153,7 +153,6 @@ const AddProductForm = () => {
           </label>
           <br />
           <label className="label_check">
-            
             <input
               className="input"
               type="checkbox"
@@ -164,7 +163,6 @@ const AddProductForm = () => {
             It is a Scrap
           </label>
 
-          
           <br />
           <label className="label">
             Estimated Weight:
@@ -176,7 +174,7 @@ const AddProductForm = () => {
               onChange={handleChange}
             />
           </label>
-          <br/>
+          <br />
           <label className="label">
             Price:
             <input
@@ -188,8 +186,8 @@ const AddProductForm = () => {
             />
           </label>
           <br />
-          <hr className="hrr"/>
-          
+          <hr className="hrr" />
+
           <label className="label">
             Images:
             <br /> <br />
@@ -228,7 +226,9 @@ const AddProductForm = () => {
           </label>
 
           <br />
-          <button type="submit"onClick={handleSubmit}>Add Product</button>
+          <button type="submit" onClick={handleSubmit}>
+            Add Product
+          </button>
         </form>
       </div>
     </>

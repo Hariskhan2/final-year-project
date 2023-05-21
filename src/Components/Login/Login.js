@@ -79,7 +79,8 @@ const LoginForm = ({ setLoggedIn }) => {
         navigate("/");
       })
       .catch((error) => {
-        toast.error("LOGIN FAILED!", {
+        const errorMessage = error.response.data.msg || "Login failed";
+      toast.error(errorMessage, {
           position: toast.POSITION.TOP_CENTER,
         });
       })
@@ -136,6 +137,7 @@ const LoginForm = ({ setLoggedIn }) => {
           </button>
         </form>
       </div>
+      <ToastContainer />
     </>
   );
 };

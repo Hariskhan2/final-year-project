@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./AddProduct.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import LoadingSpinner from "./LoadingSpinner/LoadingSpinner";
 
 
@@ -133,6 +135,9 @@ const AddProductForm = () => {
       .then((res) => {
         console.log(res.data);
         Navigate("/");
+        toast.success("PRODUCT ADDED!", {
+          position: toast.POSITION.TOP_CENTER,
+        });
       })
       .catch((err) => console.log(err))
       .finally(() => {
@@ -315,6 +320,7 @@ const AddProductForm = () => {
           </button>
         </form>
       </div>
+      <ToastContainer />
     </>
   );
 };

@@ -289,7 +289,7 @@ const handleContactPhoneChange=(e)=>{
               placeholder=""
             />
             <br />
-            <div className="contact">
+            <div className="contactt">
             <input
               type="text"
               id="email"
@@ -304,7 +304,7 @@ const handleContactPhoneChange=(e)=>{
           <br />
 
           <div className="edit_footer">
-            <button onClick={handleSubmit} type="submit" className="btn">
+            <button onClick={handleSubmit} type="submit" className="btttn-login">
               Save Changes
             </button>
           </div>

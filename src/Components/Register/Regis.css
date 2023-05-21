@@ -17,6 +17,26 @@ form {
     justify-content:flex-start;
     
   }
+  .loadd{
+    position:absolute;
+    z-index: 9999;
+    /* top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 3rem;
+    margin-left: -5rem;
+  }
+  .contactt{
+display: flex;
+align-items: center;
+gap:4;
+
+  }
   .login_link{
     
     width: 20rem;
@@ -124,11 +144,16 @@ form {
   .label{
     flex-direction:column;
     align-items: start;
+    color: rgba(0, 0, 0, 1);
+    font-size: 1.3rem;
   }
   .labelll{
     flex-direction:column;
     align-items: start;
+    color: rgba(0, 0, 0, 1);
+    font-size: 1.3rem;
   }
+  
   label {
     display: flex;
     
@@ -138,6 +163,8 @@ form {
     width:auto !important;
     font-weight:500;
     margin-bottom: 1em;
+    font-size: 1.3rem;
+  color: rgba(0, 0, 0, 1);
     /* padding:2rem !important; */
   }
   .about_mee{
@@ -165,7 +192,17 @@ form {
     margin-left: 1em;
   }
   
-  button[type="submit"] {
+  /* button[type="submit"] {
+    background-color: #4caf50;
+    color: white;
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 1em;
+  } */
+  .bttn-login{
     background-color: #4caf50;
     color: white;
     padding: 0.5em 1em;
@@ -175,4 +212,3 @@ form {
     font-size: 1em;
     margin-top: 1em;
   }
-  

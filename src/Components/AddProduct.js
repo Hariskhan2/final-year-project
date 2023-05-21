@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./AddProduct.css";
+import LoadingSpinner from "./LoadingSpinner/LoadingSpinner";
+
 
 const AddProductForm = () => {
   const [product, setProduct] = useState({
@@ -14,6 +16,8 @@ const AddProductForm = () => {
     weight: "",
     photo: [],
   });
+  const [isLoading, setIsLoading] = useState(false);
+
   const Navigate = useNavigate();
   const handleisScrapChange = (event) => {
     const target = event.target;
@@ -25,6 +29,68 @@ const AddProductForm = () => {
       [name]: value,
     });
   };
+  const [errors, setErrors] = useState({
+    title: "",
+    description: "",
+    price: "",
+    quantity: "",
+    tags: "",
+    weight: "",
+    photo: "",
+  });
+  
+  const validateForm = () => {
+    let isValid = true;
+    const newErrors = {
+      title: "",
+      description: "",
+      price: "",
+      quantity: "",
+      tags: "",
+      weight: "",
+      photo: "",
+    };
+  
+    // Perform validation for each field
+    if (!product.title) {
+      newErrors.title = "Title is required";
+      isValid = false;
+    }
+  
+    if (!product.description) {
+      newErrors.description = "Description is required";
+      isValid = false;
+    }
+  
+    if (!product.price) {
+      newErrors.price = "Price is required";
+      isValid = false;
+    }
+  
+    if (!product.quantity) {
+      newErrors.quantity = "Quantity is required";
+      isValid = false;
+    }
+  
+    if (!product.tags) {
+      newErrors.tags = "Tags are required";
+      isValid = false;
+    }
+  
+    if (!product.weight) {
+      newErrors.weight = "Weight is required";
+      isValid = false;
+    }
+  
+    if (product.photo.length === 0) {
+      newErrors.photo = "At least one photo is required";
+      isValid = false;
+    }
+  
+    setErrors(newErrors);
+    return isValid;
+  };
+  
   const handleChange = (e) => {
     if (e.target.name === "photo") {
       setProduct({
@@ -41,6 +107,10 @@ const AddProductForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!validateForm()) {
+      return;
+    }
+    setIsLoading(true);
     const token = localStorage.getItem("artsy-jwt");
     const formData = new FormData();
     formData.append("title", product.title);
@@ -64,7 +134,11 @@ const AddProductForm = () => {
         console.log(res.data);
         Navigate("/");
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err))
+      .finally(() => {
+        setIsLoading(false);
+        // setIsBlurred(false);
+      });
   };
   // send formData to backend
 
@@ -114,9 +188,12 @@ const AddProductForm = () => {
               value={product.title}
               onChange={handleChange}
             />
+            {errors.title && <div className="error">{errors.title}</div>}
           </label>
           <br />
           <br />
+          <div className="load"> {isLoading && <LoadingSpinner />}</div>
+
           <label className="label">
             Description
             <br />
@@ -126,6 +203,7 @@ const AddProductForm = () => {
               value={product.description}
               onChange={handleChange}
             />
+            {errors.description && <div className="error">{errors.description}</div>}
           </label>
 
           <br />
@@ -139,6 +217,7 @@ const AddProductForm = () => {
               value={product.tags}
               onChange={handleChange}
             />
+            {errors.tags && <div className="error">{errors.tags}</div>}
           </label>
           <br />
           <label className="label">
@@ -150,6 +229,7 @@ const AddProductForm = () => {
               value={product.quantity}
               onChange={handleChange}
             />
+            {errors.quantity && <div className="error">{errors.quantity}</div>}
           </label>
           <br />
           <label className="label_check">
@@ -161,6 +241,7 @@ const AddProductForm = () => {
               onChange={handleisScrapChange}
             />
             It is a Scrap
+            
           </label>
 
           <br />
@@ -173,6 +254,7 @@ const AddProductForm = () => {
               value={product.weight}
               onChange={handleChange}
             />
+            {errors.weight && <div className="error">{errors.weight}</div>}
           </label>
           <br />
           <label className="label">
@@ -184,6 +266,7 @@ const AddProductForm = () => {
               value={product.price}
               onChange={handleChange}
             />
+            {errors.price && <div className="error">{errors.price}</div>}
           </label>
           <br />
           <hr className="hrr" />
@@ -223,10 +306,11 @@ const AddProductForm = () => {
                 </label>
               </div>
             )}
+            {errors.photo && <div className="error">{errors.photo}</div>}
           </label>
 
           <br />
-          <button type="submit" onClick={handleSubmit}>
+          <button type="submit" className="btttn-login" onClick={handleSubmit}>
             Add Product
           </button>
         </form>

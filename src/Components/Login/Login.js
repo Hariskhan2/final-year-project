@@ -4,6 +4,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./Login.css";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
 const LoginForm = ({ setLoggedIn }) => {
   const navigate = useNavigate();
@@ -11,34 +12,66 @@ const LoginForm = ({ setLoggedIn }) => {
     email: "",
     password: "",
   });
+  const [isLoading, setIsLoading] = useState(false);
+  const [isBlurred, setIsBlurred] = useState(false);
+  const [errors, setErrors] = useState({ email: "", password: "" });
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUser({
-      ...user, //spread operator
+      ...user,
       [name]: value,
     });
   };
+
+  const validateForm = () => {
+    let isValid = true;
+    const newErrors = { email: "", password: "" };
+
+    if (!user.email) {
+      newErrors.email = "*Email is required";
+      isValid = false;
+    }
+
+    if (!user.password) {
+      newErrors.password = "*Password is required";
+      isValid = false;
+    }
+
+    setErrors(newErrors);
+    return isValid;
+  };
+
   const handleEmailChange = (e) => {
     setUser({
       ...user,
       email: e.target.value,
     });
   };
+
   const handlePasswordChange = (e) => {
     setUser({
       ...user,
       password: e.target.value,
     });
   };
+
   const loginUser = (e) => {
     e.preventDefault();
+
+    if (!validateForm()) {
+      return;
+    }
+
+    setIsLoading(true);
+    setIsBlurred(true);
 
     axios
       .post("/login", user)
       .then((res) => {
         console.log(res.data);
         setUser(res.data.user);
-        toast.success("LOGIN SUCCESSFULL !", {
+        toast.success("LOGIN SUCCESSFUL!", {
           position: toast.POSITION.TOP_CENTER,
         });
         localStorage.setItem("artsy-jwt", res.data.token);
@@ -46,27 +79,19 @@ const LoginForm = ({ setLoggedIn }) => {
         navigate("/");
       })
       .catch((error) => {
-        toast.error("LOGIN SUCCESSFULL !", {
+        toast.error("LOGIN FAILED!", {
           position: toast.POSITION.TOP_CENTER,
         });
+      })
+      .finally(() => {
+        setIsLoading(false);
+        setIsBlurred(false);
       });
   };
 
-  // const logoutUser=()=>{
-  //   axios
-  //   .delete("/logout")
-  //   .then((res) => {
-  //     localStorage.removeItem("artsy-jwt");
-  //     navigate("/login");
-  //   })
-  //   .catch((error) => {
-  //     console.log(error);
-  //   });
-  // }
-
   return (
     <>
-      <div className="form_mainn">
+      <div className={`form_mainn ${isBlurred ? "blur" : ""}`}>
         <form onSubmit={loginUser}>
           <div>
             <h2 className="head">Login</h2>
@@ -84,7 +109,9 @@ const LoginForm = ({ setLoggedIn }) => {
               onChange={handleEmailChange}
               placeholder="Email"
             />
+            {errors.email && <div className="error">{errors.email}</div>}
           </label>
+          <div className="load"> {isLoading && <LoadingSpinner />}</div>
           <br />
           <label className="label" htmlFor="password">
             Password
@@ -98,15 +125,19 @@ const LoginForm = ({ setLoggedIn }) => {
               onChange={handlePasswordChange}
               placeholder="Password"
             />
+            {errors.password && <div className="error">{errors.password}</div>}
           </label>
           <br />
           <hr className="hrr" />
 
           <br />
-          <button type="submit">Login</button>
+          <button  className="btttn-login"type="submit" onClick={() => setIsBlurred(true)}>
+           Login
+          </button>
         </form>
       </div>
     </>
   );
 };
+
 export default LoginForm;

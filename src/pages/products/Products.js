@@ -5,6 +5,7 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
+import { useNavigate } from "react-router-dom";
 import Paper from "@mui/material/Paper";
 import TablePagination from "@mui/material/TablePagination";
 import axios from "axios";
@@ -16,9 +17,9 @@ import "./products.css";
 
 const Products = () => {
   const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(2);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
   const [products, setProducts] = useState([]);
-
+  const navigate = useNavigate();
   useEffect(() => {
     
     const fetchProducts = async () => {
@@ -53,7 +54,7 @@ const Products = () => {
     };
     const res = await axios.delete(`/products/delete/${productId}`, config);
     
-   
+   navigate("/dashboard/products")
   }
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -138,7 +139,7 @@ const Products = () => {
         </Table>
       </TableContainer>
       <TablePagination
-        rowsPerPageOptions={[1, 2, 3, 4]}
+        rowsPerPageOptions={[5, 10]}
         component="div"
         count={products.length}
         rowsPerPage={rowsPerPage}

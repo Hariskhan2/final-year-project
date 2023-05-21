@@ -16,7 +16,7 @@ import axios from "axios";
 
 const Orders = () => {
   const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(2);
+  const [rowsPerPage, setRowsPerPage] = useState(5);
   const [orders, setOrders] = useState([]);
  
   useEffect(() => {
@@ -134,7 +134,7 @@ const Orders = () => {
           </Table>
         </TableContainer>
         <TablePagination
-          rowsPerPageOptions={[1, 2, 3, 4]}
+          rowsPerPageOptions={[5, 10]}
           component="div"
           count={orders.length}
           rowsPerPage={rowsPerPage}

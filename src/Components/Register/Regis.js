@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
 import "./Regis.css";
+
 function RegistrationForm({ setLoggedIn }) {
   const navigate = useNavigate();
 
@@ -15,88 +17,77 @@ function RegistrationForm({ setLoggedIn }) {
     dobMonth: "",
     dobYear: "",
     contactPhone: "",
-    addressArea:"",
-    addressCity:"",
-    // photo: null,
+    addressArea: "",
+    addressCity: "",
     password: "",
   });
-  const handleUsernameChange = (e) => {
-    setUser({
-      ...user,
-      username: e.target.value,
-    });
-  };
-  const handleDayChange = (e) => {
-    setUser({
-      ...user,
-      dobDay: e.target.value,
-    });
-  };
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleMonthChange = (e) => {
-    setUser({
-      ...user,
-      dobMonth: e.target.value,
-    });
-  };
+  const [errors, setErrors] = useState({});
 
-  const handleYearChange = (e) => {
-    setUser({
-      ...user,
-      dobYear: e.target.value,
-    });
-  };
-  const handleGenderChange = (e) => {
-    setUser({
-      ...user,
-      gender: e.target.value,
-    });
-  };
-  const handleAreaChange = (e) => {
-    setUser({
-      ...user,
-      addressArea: e.target.value,
-    });
-  };
-  const handleCityChange = (e) => {
-    setUser({
-      ...user,
-      addressCity: e.target.value,
-    });
-  };
-  const handleAboutMeChange = (e) => {
-    setUser({
-      ...user,
-      aboutMe: e.target.value,
-    });
-  };
-  const handlePasswordChange = (e) => {
-    setUser({
-      ...user,
-      password: e.target.value,
-    });
-  };
-  const handleEmailChange = (e) => {
-    setUser({
-      ...user,
-      email: e.target.value,
-    });
-  };
-  const handleContactPhoneChange = (e) => {
-    setUser({
-      ...user,
-      contactPhone: e.target.value,
-    });
-  };
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUser({
-      ...user, //spread operator
+      ...user,
       [name]: value,
     });
   };
+
+  const validateForm = () => {
+    let isValid = true;
+    const newErrors = {};
+
+    if (!user.username) {
+      newErrors.username = "Username is required";
+      isValid = false;
+    }
+
+    if (!user.email) {
+      newErrors.email = "Email is required";
+      isValid = false;
+    }
+
+    if (!user.gender) {
+      newErrors.gender = "Gender is required";
+      isValid = false;
+    }
+
+    if (!user.dobDay || !user.dobMonth || !user.dobYear) {
+      newErrors.dob = "Date of Birth is required";
+      isValid = false;
+    }
+
+    if (!user.contactPhone) {
+      newErrors.contactPhone = "Contact Phone is required";
+      isValid = false;
+    }
+
+    if (!user.addressArea) {
+      newErrors.addressArea = "Address Area is required";
+      isValid = false;
+    }
+
+    if (!user.addressCity) {
+      newErrors.addressCity = "Address City is required";
+      isValid = false;
+    }
+
+    if (!user.password) {
+      newErrors.password = "Password is required";
+      isValid = false;
+    }
+
+    setErrors(newErrors);
+    return isValid;
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (!validateForm()) {
+      return;
+    }
+    setIsLoading(true);
     const data = new FormData();
     data.append("username", user.username);
     data.append("dob", `${user.dobDay}-${user.dobMonth}-${user.dobYear}`);
@@ -106,6 +97,7 @@ function RegistrationForm({ setLoggedIn }) {
     data.append("contactPhone", user.contactPhone);
     data.append("email", user.email);
     data.append("password", user.password);
+
     axios
       .post("/register", data, {
         headers: {
@@ -120,45 +112,13 @@ function RegistrationForm({ setLoggedIn }) {
       })
       .catch((error) => {
         console.log(error);
+      })
+      .finally(() => {
+        setIsLoading(false);
+        
       });
   };
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   //const { username, email, password } = user;
-  //   try{
-  //   const res = await fetch("/register", {
-  //     method: 'POST',
-  //     headers:{'Content-Type':'application/json'},
-  //     body: JSON.stringify({
-  //       username:user.username,
-  //       email:user.email,
-  //       password:user.password,
-  //     }),
 
-  //   });
-  // if(!res.ok){
-  //   return console.log("Invalid Registeration")
-  // }
-  // const data=await res.json()
-  //   // ideally we also want a way to confirm their email or identity
-  //   setUser({
-  //     username:'',
-  //     email: '',
-  //     password: '',
-  //     })
-  //    navigate('/')
-  // }catch (error){
-  //   return console.log("Invalid Registeration")
-  // }
-  // };
-  // if (res.status == 200) {
-  //   window.alert("Registeration Successfull");
-  //   console.log("Successfull Registeration");
-  //   navigate("/login");
-  // } else {
-  //   window.alert("Invalid Registeration");
-  //   console.log("Invalid Registeration");
-  // }
   return (
     <>
       <div className="form_mainnn">
@@ -176,10 +136,12 @@ function RegistrationForm({ setLoggedIn }) {
               id="username"
               name="username"
               value={user.username}
-              onChange={handleUsernameChange}
+              onChange={handleChange}
               placeholder="Username"
             />
+            {errors.username && <div className="error">{errors.username}</div>}
           </label>
+
           <div className="">
             <label className="labell" htmlFor="gender">
               Gender{" "}
@@ -189,14 +151,16 @@ function RegistrationForm({ setLoggedIn }) {
               name="gender"
               id="gender"
               value={user.gender}
-              onChange={handleGenderChange}
+              onChange={handleChange}
             >
               <option value="">Select Gender</option>
               <option value="male">Male</option>
               <option value="female">Female</option>
               <option value="other">Other</option>
             </select>
+            {errors.gender && <div className="error">{errors.gender}</div>}
           </div>
+          <div className="load"> {isLoading && <LoadingSpinner />}</div>
 
           <br />
 
@@ -208,39 +172,42 @@ function RegistrationForm({ setLoggedIn }) {
               <input
                 type="number"
                 id="dob-day"
-                name="dob-day"
+                name="dobDay"
                 placeholder="Day"
                 min="1"
                 max="31"
                 required
                 value={user.dobDay}
-                onChange={handleDayChange}
+                onChange={handleChange}
               />
               <input
                 type="number"
                 id="dob-month"
-                name="dob-month"
+                name="dobMonth"
                 placeholder="Month"
                 min="1"
                 max="12"
                 required
                 value={user.dobMonth}
-                onChange={handleMonthChange}
+                onChange={handleChange}
               />
               <input
                 type="number"
                 id="dob-year"
-                name="dob-year"
+                name="dobYear"
                 placeholder="Year"
                 min="1900"
                 max="2023"
                 required
                 value={user.dobYear}
-                onChange={handleYearChange}
+                onChange={handleChange}
               />
             </span>
+            {errors.dob && <div className="error">{errors.dob}</div>}
           </div>
+
           <br />
+
           <div className="">
             <label className="label" htmlFor="AboutMe">
               About me
@@ -250,18 +217,21 @@ function RegistrationForm({ setLoggedIn }) {
                 name="aboutMe"
                 className="about_mee"
                 value={user.aboutMe}
-                onChange={handleAboutMeChange}
+                onChange={handleChange}
                 placeholder="About me (optional)"
               />
             </label>
           </div>
+
           <br />
           <hr className="hr" />
           <br />
+
           <div className="">
             <label className=" labell" htmlFor="name">
               Contact Information
             </label>
+
             <br />
             <label className=" labelll" htmlFor="contactPhone">
               Phone No.
@@ -271,51 +241,60 @@ function RegistrationForm({ setLoggedIn }) {
                 name="contactPhone"
                 className="inputt"
                 value={user.contactPhone}
-                onChange={handleContactPhoneChange}
+                onChange={handleChange}
                 placeholder="+9230--------"
               />
             </label>
+            {errors.contactPhone && (
+              <div className="error">{errors.contactPhone}</div>
+            )}
+
             <br />
             <div className="dob">
-            <label className=" labell " htmlFor="dob">
-              Address
-            </label>
-            <br/>
-            <span>
-            <label className=" labell " htmlFor="area">
-            Area
-            </label>
-              <input
-                type="text"
-                id="addressArea"
-                name="addressArea"
-                placeholder="Location Area"
-                
-                required
-                value={user.addressArea}
-                onChange={handleAreaChange}
-              />
-              </span>
-              <br/>
+              <label className=" labell " htmlFor="dob">
+                Address
+              </label>
+              <br />
               <span>
-              <label className=" labell " htmlFor="city">
-            City
-            </label>
-              <input
-                type="text"
-                id="addressCity"
-                name="addressCity"
-                placeholder="City"
-               
-                required
-                value={user.addressCity}
-                onChange={handleCityChange}
-              />
-              
-            </span>
-          </div>
-          <br />
-            <div className="contact">
+                <label className=" labell " htmlFor="area">
+                  Area
+                </label>
+                <input
+                  type="text"
+                  id="addressArea"
+                  name="addressArea"
+                  placeholder="Location Area"
+                  required
+                  value={user.addressArea}
+                  onChange={handleChange}
+                />
+              </span>
+              {errors.addressArea && (
+                <div className="error">{errors.addressArea}</div>
+              )}
+
+              <br />
+              <span>
+                <label className=" labell " htmlFor="city">
+                  City
+                </label>
+                <input
+                  type="text"
+                  id="addressCity"
+                  name="addressCity"
+                  placeholder="City"
+                  required
+                  value={user.addressCity}
+                  onChange={handleChange}
+                />
+              </span>
+              {errors.addressCity && (
+                <div className="error">{errors.addressCity}</div>
+              )}
+            </div>
+
+            <br />
+            <div className="contactt">
               <label className="label" htmlFor="email">
                 Email
                 <input
@@ -324,10 +303,12 @@ function RegistrationForm({ setLoggedIn }) {
                   id="email"
                   name="email"
                   value={user.email}
-                  onChange={handleEmailChange}
+                  onChange={handleChange}
                   placeholder="Email"
                 />
+                {errors.email && <div className="error">{errors.email}</div>}
               </label>
+              
               <br />
               <p>We won't reveal your email to anyone else </p>
             </div>
@@ -344,21 +325,29 @@ function RegistrationForm({ setLoggedIn }) {
               name="password"
               id="password"
               value={user.password}
-              onChange={handlePasswordChange}
+              onChange={handleChange}
               placeholder="Password"
             />
           </label>
+          {errors.password && <div className="error">{errors.password}</div>}
           <br />
           <hr className="hrr" />
 
           <br />
-          <button type="submit">Register</button>
-          <br/> <br/>
-         <div className="login_link"> Already have an account?<Link to={"/login"} className='span_login'>Log in</Link></div>
+          <button className="btttn-login" type="submit">
+             Register
+          </button>
+          <br /> <br />
+          <div className="login_link">
+            Already have an account?
+            <Link to={"/login"} className="span_login">
+              Log in
+            </Link>
+          </div>
         </form>
-        
       </div>
     </>
   );
 }
+
 export default RegistrationForm;

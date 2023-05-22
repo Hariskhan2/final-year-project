@@ -15,7 +15,7 @@ import Contact from "./Components/Contact/Contact";
 import RecyclingModel from "./Components/Recommendation/RecyclingModel";
 import ProductDetails from "./Components/ProductDetails/ProductDetails.js";
 import AllProducts from "./Components/AllProducts/AllProducts.js";
-
+import Privacypolicy from "./Components/PrivacyPolicy/Privacypolicy.js"
 import { useState } from "react";
 import Logout from "./Components/Logout/Logout";
 
@@ -72,6 +72,7 @@ const App = () => {
           )}
 
           <Route path="/about" element={<About />} />
+          <Route path="/privacy-policy" element={<Privacypolicy />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/products/:id" exect element={<ProductDetails />} />
           <Route path="/allproducts" exect element={<AllProducts />} />

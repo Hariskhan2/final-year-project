@@ -118,6 +118,10 @@ MenuItem >Link{
   
 width: 50px !important;
 }
+.artsy-logo{
+  width:10rem;
+  height: 10rem;
+}
 .navBar__rightSide .login:hover {
   background-color: rgb(235, 245, 230);
   color: #1ba94c;

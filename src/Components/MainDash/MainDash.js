@@ -9,6 +9,7 @@ const MainDash = () => {
       {/* <h1>Dashboard</h1> */}
       
       <h2>Recent Orders</h2>
+      <p>(These are your Products that somebody Ordered)</p>
       <Table />
     </div>
   );

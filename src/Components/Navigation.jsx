@@ -8,6 +8,7 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 // import { UilUserCircle } from "@iconscout/react-unicons";
 import Button from "@mui/material/Button";
 import Searchbar from "./SearchBar/Searchbar";
+import logo from "./assets/default-monochrome-white.svg"
 // import SearchIcon from "@material-ui/icons/Search";
 
 function Navigation({ loggedIn, setLoggedIn }) {
@@ -21,7 +22,7 @@ function Navigation({ loggedIn, setLoggedIn }) {
   return (
     <div className="navBar">
       <div className="navBar__leftSide">
-        <h3>ARTSY SCRAPYARD</h3>
+      <img src={logo} alt="Logo" className="artsy-logo" />
       </div>
       <Searchbar />
       <div className="navBar__rightSide">

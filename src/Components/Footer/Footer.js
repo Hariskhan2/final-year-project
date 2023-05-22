@@ -2,17 +2,13 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import './Footer.css'
 import { UilFacebook,UilInstagramAlt,UilTwitter, UilYoutube  } from '@iconscout/react-unicons'
-
+import logo from "../assets/default.png"
 
 const Footer = () => {
   return (
     <div className="Footer">
         <div className='line_1'>
-            <h4>Popular Categories</h4>
-            <Link to=''>Cars</Link>
-            <Link to=''>Plastic Bottles</Link>
-            <Link to=''>Glass Bottles</Link>
-            <Link to=''>Metal Strips</Link>
+        <img src={logo} alt="Logo" />;
         </div>
         <div className='line_2'>
         <h4>Trending Searches</h4>

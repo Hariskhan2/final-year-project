@@ -1,6 +1,12 @@
 .full-footer{
   position:relative !important;
 }
+.foot-logo{
+  width: 150px;
+  height: 150px;
+  margin-top: 30px;
+
+}
 .Footer {
   
   width: 99%;

@@ -31,6 +31,7 @@
     height:80px;
     width:80px;
     vertical-align: super;
+    background-color:rgba(0, 0, 0, 0.655);
   }
   .owner_info{
     display:flex;
@@ -105,11 +106,14 @@
   }
   
   .product-image img {
-    max-width: 100%;
-    max-height: 100%;
+    max-width: 170px;
+    max-height: 250px;
     object-fit: contain;
+    
   }
-  
+  .product-image{
+    background-color: rgba(0, 0, 0, 0.568);
+  }
   .product-info {
     display: flex;
     flex-direction: column;

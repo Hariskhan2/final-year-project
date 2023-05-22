@@ -2,38 +2,38 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Footer.css";
 import { UilFacebook,UilInstagramAlt,UilTwitter, UilYoutube  } from '@iconscout/react-unicons'
-
+import logo from "./assets/default.png"
 const Footer = () => {
   return (
     <div className='full-footer'>
     <div className="Footer">
       <div className="line_1">
-        <h4>Popular Categories</h4>
-        <Link to="">Cars</Link>
-        <Link to="">Plastic Bottles</Link>
-        <Link to="">Glass Bottles</Link>
-        <Link to="">Metal Strips</Link>
+      
+
+
+        <img src={logo} alt="Logo"  className="foot-logo"/>
+        
       </div>
-      <div className="line_2">
+      {/* <div className="line_2">
         <h4>Trending Searches</h4>
         <Link to="">Pipes</Link>
         <Link to="">Bottles</Link>
         <Link to="">Car Parts</Link>
         <Link to="">Metal rods</Link>
-      </div>
+      </div> */}
       <div className="line_3">
         <h4>About Us</h4>
         <Link to="">About us</Link>
-        <Link to="">Artsy blog</Link>
+        <Link to="">Sell Product</Link>
         <Link to="">Contact Us</Link>
-        <Link to="">Artsy for Businesses</Link>
+        {/* <Link to="">Artsy for Businesses</Link> */}
       </div>
       <div className="line_4">
         <h4>Scrapyard</h4>
-        <Link to="">Help</Link>
-        <Link to="">Sitemap</Link>
-        <Link to="">Terms of Use</Link>
-        <Link to="">Privacy Policy</Link>
+        <Link to="">Recommendation </Link>
+        {/* <Link to="">Sitemap</Link>
+        <Link to="">Terms of Use</Link> */}
+        <Link to="./privacy-policy">Privacy Policy</Link>
       </div>
       <div className='line_5'>
         <h4>FOLLOW US ON</h4>

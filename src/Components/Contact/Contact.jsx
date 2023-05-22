@@ -21,7 +21,7 @@ function Contact() {
 
         <div className="contact phoneContact">
           <img src={email} alt="Icon"></img>
-          <h3>By phone</h3>
+          <h3>By Email</h3>
           <p>
             Just send us your questions or concerns and we will give you the
             help you need.

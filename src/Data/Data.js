@@ -40,11 +40,11 @@ export const SidebarData = [
     route: "/dashboard/edit_profile"
   },
   
-  {
-    icon: UilQuestionCircle,
-    heading: 'Help & Support',
-    route: "/dashboard/help"
-  },
+  // {
+  //   icon: UilQuestionCircle,
+  //   heading: 'Help & Support',
+  //   route: "/dashboard/help"
+  // },
 ];
 
 // Analytics Cards Data

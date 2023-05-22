@@ -71,10 +71,11 @@ const ProductDetails = () => {
           <hr />
           <div className="product-details">
             <div className="productt-card">
+            <div className="productt-image">
               <div className="product-image">
                 <img src={product.photo.url[0]} alt={product.title} />
               </div>
-
+</div>
               <div className="product-info">
                 <h2 className="product-title">{product.title}</h2>
                 <p className="product-description">{product.description}</p>
